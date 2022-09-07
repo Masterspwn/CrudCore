@@ -1,0 +1,69 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    ViewData["Title"] = "UserSearch";
+}
+
+<div class="col-md-6">
+    <div class="white-box">
+        <h3 class="box-title m-b-0">Form with right icon</h3>
+        <p class="text-muted m-b-30 font-13"> Use Bootstrap's predefined grid classes for horizontal form </p>
+        <form class="form-horizontal">
+         @foreach (DataRow row in @Model.Rows)
+                        {
+            <div class="form-group">
+                <label for="exampleInputuname" class="col-sm-3 control-label">ID*</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                            <input type="text" disabled class="form-control" id="exampleInputuname" placeholder="@row["user_id"]">
+                        <div class="input-group-addon"><i class="ti-user"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputuname" class="col-sm-3 control-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                            <input type="text"  disabled class="form-control" id="exampleInputuname" placeholder="@row["username"]">
+                        <div class="input-group-addon"><i class="ti-user"></i></div>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">Password*</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="exampleInputpwd2" placeholder="Enter pwd">
+                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword4" class="col-sm-3 control-label">Re Password*</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="exampleInputpwd2" placeholder="Re Enter pwd">
+                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <div class="checkbox checkbox-success">
+                        <input id="checkbox34" type="checkbox">
+                        <label for="checkbox34">Check me out !</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-b-0">
+                <div class="col-sm-offset-3 col-sm-9 text-right">
+                    <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Sign in</button>
+                </div>
+            </div>
+            }
+        </form>
+    </div>
+</div>
+

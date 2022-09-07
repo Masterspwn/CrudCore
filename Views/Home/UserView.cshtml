@@ -1,0 +1,43 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewData["Title"] = "UserView";
+ }
+
+<div class="col-sm-6">
+    <div class="white-box">
+        <h3 class="box-title">Usuarios</h3>
+                
+            <table class="table color-table success-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Password</th>
+                        <th>         </th>
+                        <th>         </th>
+                        <th>         </th>
+                    </tr>
+                <thead>
+              
+                
+                @foreach (DataRow row in @Model.Rows)
+                        {
+                    <tbody>
+                         <tr>
+                            <td>@row["user_id"]</td>
+                            <td>@row["username"]</td>
+                            <td>@row["password"]</td>
+                        <td>
+                            <a href="UserSearch?usr_id=@row["user_id"]" class="btn btn-block btn-danger btn-rounded">
+                                Buscar </a>
+                    </td>
+                            <td><button class="btn btn-block btn-default btn-rounded">Modificar</button><td/>
+                            <td><button class="btn btn-block btn-default btn-rounded">Guardar</button></td>
+                        </tr>
+                    </tbody>
+                        }
+            </table>
+       
+    </div>
+</div>
