@@ -131,5 +131,12 @@ namespace CrudCore.Controllers
             return View(dt);
 
         }
+
+        public IActionResult obtenerHora()
+        {
+            string datetime = DateTime.Now.ToString("hh:mm:ss tt");
+            return View(datetime);
+        }
+
     }
 }
