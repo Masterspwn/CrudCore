@@ -1,0 +1,238 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewData["Title"] = "PacienteSearchview";
+}
+
+
+<!-- Custom CSS -->
+<div class="table-responsive">
+    <table class="table color-table inverse-table">
+
+        <tr>
+            <th>Distrito Metroppolitanino de Quito, </th>
+            <th>@DateTime.Now.ToString()</th>
+
+
+            <th></th>
+        </tr>
+
+    </table>
+</div>
+<!-- Datos -->
+
+<div class="col-md-12">
+    <div class="panel panel-info">
+        <div class="panel-heading"> INFORME GENERAL</div>
+        <div class="panel-wrapper collapse in" aria-expanded="true">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <h3 class="box-title">1. DATOS DE IDENTIFICACION</h3>
+                        <hr class="m-t-0 m-b-40">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Nombre:</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static"> John </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Apellidos:</label>
+                                    <div class="col-md-9">
+                                        <p class="form-control-static"> Doe </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Genero:</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control">
+                                            <option>Modulator</option>
+                                            <option>Admin</option>
+                                            <option>User</option>
+                                            <option>Subscriber</option>
+                                        </select>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Edad:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">  </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha de Nacimiento:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static"> 11/06/1987 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Direccion:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">  </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Telefono:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static"> 11/06/1987 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Instruccion:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">  </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Institucion:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static"> 11/06/1987 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fuente Informacion:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">  </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Correo Electronico:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static"> 11/06/1987 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Fecha entrega Informe:</label>
+                                <div class="col-md-9">
+                                    <p class="form-control-static">@DateTime.Now.ToString() </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!--/span-->
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button type="submit" class="btn btn-info"> <i class="fa fa-pencil"></i> Edit</button>
+                                            <button type="button" class="btn btn-default">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"> </div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="col-md-12">
+    <div class="panel panel-info">
+        <div class="panel-heading"> INFORME GENERAL</div>
+            <div class="panel-wrapper collapse in" aria-expanded="true">
+                <div class="panel-body">
+              <form class="form-horizontal" role="form">
+                    @foreach (DataRow row in @Model.Rows)
+                    {
+                        <div class="form-body">
+                            <h3 class="box-title">1. DATOS DE IDENTIFICACION</h3>
+                            <hr class="m-t-0 m-b-40">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Nombre:</label>
+                                        <div class="col-md-9">
+                                            <input type="text" disabled class="form-control-static" id="exampleInputuname" placeholder="@row["pac_HistorialClinico"]">
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Apellidos:</label>
+                                        <div class="col-md-9">
+                                            <p class="form-control-static">  @row["pac_apellidos"] </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                        
+                        </div>
+                    }
+              
+              </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

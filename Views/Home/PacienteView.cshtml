@@ -14,28 +14,41 @@
                 <table class="table table-hover manage-u-table">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Username </th>
-                            <th>Password</th>
-                            
+                            <th>Historia clinica</th>
+                            <th>Apellidos </th>
+                            <th>Nombres</th>
+                            <th>Genero</th>
+                            <th>Edad</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>Instruccion</th>
+                            <th>Institucion</th>
+                            <th>Fuente de Informacion</th>
+                            <th>Email</th>
+                            <th>Fecha entrega Informe</th>
                         </tr>
                     </thead>
                       @foreach (DataRow row in @Model.Rows)
                                         {
                     <tbody>
                             <tr class="advance-table-row ">
-                                <td width="10"> @row["user_id"]</td>
+                                <td width="10"> @row["pac_HistorialClinico"]</td>
                                 <td width="40">
-                                    @row["username"]
+                                    @row["pac_apellidos"]
                                    
                                 </td>
-                                <td>@row["password"]</td>
-                               
+                                <td>@row["pac_genero"]</td>
+                                <td>@row["pac_edad"] </td>
+                                <td>@row["pac_fnacimiento"]</td>
+                                <td>@row["pac_direccion"]</td>
+                                <td>@row["pac_telefono"]</td>
+                                <td>@row["pac_instruccion"]</td>
+                                <td>@row["pac_institucion"]</td>
+                                <td>@row["pac_finformacion"]</td>
+                                <td>@row["pac_email"]</td>
+                                <td>@row["pac_fentregainforme"]</td>
                                 <td>
-                                    <a href="UserSearch?usr_id=@row["user_id"]"class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></a>
-
-
-
                                     <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button>
                                     <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button>
                                             </td>

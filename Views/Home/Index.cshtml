@@ -1,8 +1,21 @@
-﻿@{
+﻿@model DataTable
+@using System.Data
+@{
     ViewData["Title"] = "Home Page";
+ 
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+
+<li>
+    <ul>
+    <form role="search" class="app-search hidden-sm hidden-xs m-r-10">
+            BUSCAR/NUEVO
+            @ViewBag.SessionName 
+        <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a>
+    </form>
+        </ul>
+</li>
+
 </div>
+@Html.Partial("PacienteView")

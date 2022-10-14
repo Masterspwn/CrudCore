@@ -4,7 +4,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using CrudCore.Myclass;
 using System.Data;
-
+using System.Diagnostics.Eventing.Reader;
 
 namespace CrudCore.Controllers
 {
@@ -18,16 +18,35 @@ namespace CrudCore.Controllers
         //}
 
         private ConeccionDB coneccionDB= new ConeccionDB();
+
+
+
+        public IActionResult _Main() 
+        {
+            DataTable dt = coneccionDB.GetData($"SELECT * FROM empreadmin.tbl_usuarios;");
+
+            return View(dt);
+        }
+
         public IActionResult Index()
         {
+
+           
+
+
             if (ChkLogin() == true)
             {
+
+              
+                ViewBag.SessionName = HttpContext.Session.GetString("SessionAuthentication");
+
                 return View();  
             }
             else
             {
                 return View("Login");
             }
+
                 
         }
 
@@ -43,10 +62,10 @@ namespace CrudCore.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Login() 
-        {
-            return View();
-        }
+      //  public IActionResult Login() 
+       // {
+       //     return View();
+       // }
         public IActionResult InsertInfouserView()
         {
             return View();
@@ -66,19 +85,27 @@ namespace CrudCore.Controllers
                 $"INNER JOIN empreadmin.usr_clave C " +
                 $"ON C.codigo_usr = U.codigo_usuario " +
                 $"WHERE  U.descripcion_usuario = '{username}';");
-       // DataTable dt = coneccionDB.GetData($"SELECT * FROM Tbl_Usuarios WHERE username = '{username}';");
+         
+
+            // DataTable dt = coneccionDB.GetData($"SELECT * FROM Tbl_Usuarios WHERE username = '{username}';");
             if (dt.Rows.Count > 0)
             {
+                DataTable dts = coneccionDB.GetData($"SELECT * FROM empreadmin.tbl_paciente;");
+                HttpContext.Session.SetString(SessionAuthentication.Default.ToString(), username);
                 //if (dt.Rows[0]["password"].ToString()==EncodeString.MD5HashCrytography(password))
                 if (dt.Rows[0]["descripcion_clave"].ToString() == EncodeString.MD5HashCrytography(password))
                 {
                    
                     HttpContext.Session.SetString("Login", "1");
-                    return View("Index");
+                   
+                    return View("Index",dts);
                 }
+
+              
             }
 
 
+      
 
             return View();
          
@@ -114,7 +141,6 @@ namespace CrudCore.Controllers
         public IActionResult UserView() 
         {
             DataTable dt = coneccionDB.GetData($"SELECT * FROM empreadmin.tbl_usuarios;");
-            
             return View(dt);
             
         }
@@ -131,12 +157,40 @@ namespace CrudCore.Controllers
             return View(dt);
 
         }
-
-        public IActionResult obtenerHora()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult PacienteView()
         {
-            string datetime = DateTime.Now.ToString("hh:mm:ss tt");
-            return View(datetime);
+            DataTable dt = coneccionDB.GetData($"SELECT * FROM empreadmin.tbl_paciente;");
+            return View(dt);
+
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usr_id"></param>
+        /// <returns></returns>
+        public IActionResult PacienteInsert(string usr_id)
+        {
+            DataTable dt = coneccionDB.GetData($"SELECT * FROM empreadmin.tbl_usuarios WHERE user_id ='{usr_id}';");
+
+            return View(dt);
+
+        }
+
+        
+ public IActionResult PacienteSearchview(string usr_id)
+        {
+            DataTable dt = coneccionDB.GetData($"SELECT * FROM empreadmin.tbl_paciente WHERE pac_HistorialClinico ='{usr_id}';");
+
+            return View(dt);
+
+        }
+
+
 
     }
 }
